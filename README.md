@@ -1,4 +1,4 @@
-# Haskell Design Exercise
+# Haskell Design Exercises
 
 - [Problem 1](problem-defintion-1.md)
 - [Problem 2](problem-defintion-2.md)
