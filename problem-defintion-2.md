@@ -1,6 +1,6 @@
 # Problem Definition 2
 
-Given a checkout directory, a folder path and a config directory. Together the checkout directory + folder path is the project directory. you need to look for an executable script (`script.sh`) in the following order:
+You are given a checkout directory, a folder path and a config directory. Together the checkout directory + folder path is the project directory. you need to look for an executable script (`script.sh`) in the following order:
 
 - Look for the script in the config folder under the supplied folder path. if found execute it and return the result
 
@@ -13,9 +13,9 @@ config/some/folder/path/script.sh -- script found, so execute it
 - If that fails then you need to search the project for build file that matches a particular language. The build file may not be found.
 
 Assume the following languages and build files:
-    - Scala   -> build.sbt
-    - Ruby    -> Gemfile
-    - Haskell -> Any .cabal file or a stack.yaml file
+  - Scala   -> build.sbt
+  - Ruby    -> Gemfile
+  - Haskell -> Any .cabal file or a stack.yaml file
 
 If the build file is found you need to see if an executable script exists in the config directory for the language. If one is found you need to execute it.
 
@@ -41,7 +41,7 @@ Don't handle an file or execution errors at this point. Assume the default scrip
 You need to be able to test the following conditions
 
 - If the project directory has a corresponding folder path in the config directory with an executable script, it gets executed.
-- The project directory has a corresponding folder path in the config directory without an executable script, fall back to language-based execution.
-- The project directory has no matching languages, and the default script should be executed
-- The project directory matches the Scala language and has a matching script under configDir/scala folder. Verify that the script for scala is executed.
-- The project directory matches the Ruby language and doesn't have a matching script under config/ruby folder, this should search for other languages or return run the default script if none are found
+- If the project directory has a corresponding folder path in the config directory without an executable script, fall back to language-based execution.
+- If the project directory has no matching languages, and the default script should be executed.
+- If the project directory matches the Scala language and has a matching script under configDir/scala folder. Verify that the script for scala is executed.
+- If the project directory matches the Ruby language and doesn't have a matching script under config/ruby folder. Continue to search for other languages or run the default script if none are found
