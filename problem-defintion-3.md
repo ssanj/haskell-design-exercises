@@ -39,17 +39,17 @@ Every location searched for should be logged to stdout (possibly at the end of t
 Example execution log:
 ```
 searching configDir/some/folder/path
-Didn't find matching configDir/some/folder/path
+Didn't find matching configDir/some/folder/path/script.sh
 searching checkoutDir/some/folder/path for scala build file (build.sbt)
 searching checkoutDir/some/folder/path for ruby build file (Gemfile)
 searching checkoutDir/some/folder/path for haskell build files (*.cabal, stack.yaml)
-found haskell build file
+found haskell build file (stack.yaml)
 looking for configDir/haskell/script.sh
 haskell script file not found
 executing default script at: configDir/script.sh
 ```
 
-If any of the script executions fail, write the following to stdout: "script execution failed for *script path* because of *some error message*"
+If any of the script executions fail, write the following to stdout: "script execution failed for `<script path>` because of `<error reason>`".
 
 ## Testing Criteria
 
@@ -57,8 +57,6 @@ You need to be able to test the following conditions
 
 - If the project directory has a corresponding folder path in the config directory with an executable script, it gets executed.
 - If the project directory has a corresponding folder path in the config directory without an executable script, fall back to language-based execution.
-- The project directory has no matching languages, and the default script should be executed
 - If the project directory matches the Scala language and has a matching script under configDir/scala folder, verify that the script for scala is executed.
-- If the project directory matches the Ruby language and doesn't have a matching script under config/ruby folder, it should run the default script if none are found
-- Verify the execution log tracks the path taken to find the executable script
+- If the project directory matches the Ruby language and doesn't have a matching script under config/ruby folder, it should run the default script if none are found. Verify the execution log tracks the path taken to find the default script
 - When a script execution fails, the default error handler writes a message to stdout.
