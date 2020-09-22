@@ -1,6 +1,5 @@
 # Problem Definition 1
 
-
 Given a project directory you need to search the project directory for build file that matches a particular language. The build file may not be found.
 
 Assume the following languages and build files:
@@ -21,7 +20,3 @@ You need to be able to test the following conditions
 - The project directory has many matching languages but returns the first match
 - The project directory matches a Haskell project by ".cabal" file
 - The project directory matches a Haskell project by "stack.yaml" file
-
-
-
-
