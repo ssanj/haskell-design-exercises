@@ -11,12 +11,14 @@ Write a function that searches through a project directory and searches for the 
 
 The solution needs to be easily updated to include more languages (and build files).
 
+Create any data structures necessary. Use any libraries you like.
+
 ## Testing Criteria
 
-You need to be able to test the following conditions
+You need to be able to test the following conditions:
 
-- The project directory has no matching languages
-- The project directory matches the Scala language
-- The project directory has many matching languages but returns the first match
-- The project directory matches a Haskell project by ".cabal" file
-- The project directory matches a Haskell project by "stack.yaml" file
+### case: The project directory has no matching files
+
+### case: The project directory has a matching language, return language found
+
+### case: The project directory has multiple matching languages, return the first matching language found
